@@ -42,10 +42,8 @@ const ListaUsuario = () => {
               </h5>
             </div>
             <div className="card-body">
-              <p>Apellidos: {list.apellido}</p>
-              <p>Edad: {list.edad}</p>
-              <p>Teléfono: {list.telefono}</p>
               <p>Correo: {list.correo}</p>
+              <p>password: {list.password}</p>
             </div>
             <div className="card-footer text-center">
               <button className="btn btn-dark mx-1" onClick={() => eliminarUsario(list._id)}>
