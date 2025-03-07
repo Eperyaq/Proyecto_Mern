@@ -8,10 +8,12 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/usuarios/login', { correo, password });
+      const response = await axios.post(`${API_URL}/api/usuarios/login`, { correo, password });
       localStorage.setItem('token', response.data.token);
       navigate('/usuarios'); // Redirigir a la lista de usuarios
     } catch (error) {
