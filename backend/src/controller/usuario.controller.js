@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
+const urlBack = "https://proyecto-mern-bkxe.onrender.com";
+
 // Listar usuarios
 usuarioCtrl.getUsu = async (req, res) => {
   try {
@@ -11,8 +13,8 @@ usuarioCtrl.getUsu = async (req, res) => {
     const usuariosConFoto = usuarios.map(usuario => ({
       ...usuario._doc,
       foto: usuario.foto
-        ? `http://localhost:4000/img/${usuario.foto}`
-        : `http://localhost:4000/img/noFoto.png`, // Imagen por defecto si no hay foto
+        ? `${urlBack}/img/${usuario.foto}`
+        : `${urlBack}/img/noFoto.png`, // Imagen por defecto si no hay foto
     }));
     res.json(usuariosConFoto);
   } catch (error) {
