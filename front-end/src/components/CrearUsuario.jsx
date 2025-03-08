@@ -14,6 +14,8 @@ const CrearUsuario = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const urlBack = "https://proyecto-mern-bkxe.onrender.com";
+
   const capturarDatos = (e) => {
     const { name, value } = e.target;
     setUsuario({ ...usuario, [name]: value });
@@ -35,7 +37,7 @@ const CrearUsuario = () => {
     }
 
     try {
-      await axios.post('http://localhost:4000/api/usuarios', formData, {
+      await axios.post(`${urlBack}/api/usuarios`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

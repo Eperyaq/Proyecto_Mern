@@ -8,10 +8,12 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
+  const urlBack = "https://proyecto-mern-bkxe.onrender.com";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/usuarios/login', { correo, password });
+      const response = await axios.post(`${urlBack}/api/usuarios/login`, { correo, password });
       localStorage.setItem('token', response.data.token);
       navigate('/usuarios'); // Redirigir a la lista de usuarios
     } catch (error) {
